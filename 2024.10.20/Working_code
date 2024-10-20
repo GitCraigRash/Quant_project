@@ -1,0 +1,80 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from random import sample
+from sklearn.metrics import precision_score, recall_score
+
+# Parameters for the finite field
+p = 7  # Prime field size
+m = 5  # Length of the code
+
+# Create the finite field (just integers mod p)
+Fp = np.arange(p)
+
+# Example code C (subspace of Fp^m)
+def generate_codeword():
+    return np.random.choice(Fp, m)
+
+# Generate a set of codewords for the code
+C = [generate_codeword() for _ in range(10)]
+
+# Define sets Fi (possible values for each index)
+F_sets = [sample(list(Fp), np.random.randint(1, p)) for _ in range(m)]
+
+# Display Fi sets
+for i, Fi in enumerate(F_sets):
+    print(f"Set F{i}: {Fi}")
+
+# Find valid codewords
+valid_codewords = []
+for c in C:
+    if all(c[i] in F_sets[i] for i in range(m)):
+        valid_codewords.append(c)
+
+print("Valid codewords:", valid_codewords)
+
+# Introduce noise (simulating errors in the field)
+def add_noise(codeword, noise_level=0.1):
+    noisy_codeword = codeword.copy()
+    if np.random.rand() < noise_level:
+        index = np.random.randint(0, m)
+        noisy_codeword[index] = np.random.choice(Fp)
+    return noisy_codeword
+
+# Apply noise to a codeword
+noisy_C = [add_noise(c, noise_level=0.3) for c in C]
+
+# Try recovering with noisy data
+noisy_valid_codewords = []
+for c in noisy_C:
+    if all(c[i] in F_sets[i] for i in range(m)):
+        noisy_valid_codewords.append(c)
+
+print("Noisy valid codewords:", noisy_valid_codewords)
+
+
+# Precision and recall (if ground truth known)
+ground_truth = C  # Original codewords
+predicted = noisy_valid_codewords  # Codewords recovered after noise
+
+# Convert to sets for comparison
+gt_set = set(tuple(c) for c in ground_truth)
+pred_set = set(tuple(c) for c in predicted)
+
+precision = len(pred_set & gt_set) / len(pred_set)
+recall = len(pred_set & gt_set) / len(gt_set)
+
+print(f"Precision: {precision:.2f}, Recall: {recall:.2f}")
+
+
+def plot_codewords(C, title):
+    plt.figure(figsize=(10, 4))
+    for i, codeword in enumerate(C):
+        plt.plot(codeword, label=f"Codeword {i+1}")
+    plt.title(title)
+    plt.legend()
+    plt.show()
+
+# Visualize original and noisy codewords
+plot_codewords(C, "Original Codewords")
+plot_codewords(noisy_C, "Noisy Codewords")
+
