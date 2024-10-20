@@ -2,3 +2,11 @@ How can I combine this with efficient ML?
 My first thought is a credit card or ID situation where the prover is trying to make sure that the individual is truely the correct person.
 
 What does this Paper achive?
+
+2024.10.20
+Here is my current idea as to how to solve this: 
+Find a library that does list-recovery
+simulate a transmission to the device
+return possible outcomes and evaluate time and accuracy.
+
+Repeate but with quantum.
