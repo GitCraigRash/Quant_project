@@ -22,4 +22,23 @@ but now I a questioning the entire setup of the problem. Because I don't know if
 12:41pm
 I have desided to make entreies every 15m to improve my abilty to stay on track and then reflect every 45 minutes to 1 hour on my approch to the problems.
 
-As of now I am trying to make a proper simulation of data transmitting and being restored by botha  classical and quantum algorythm. 
+As of now I am trying to make a proper simulation of data transmitting and being restored by both classical and quantum algorythm. 
+
+1:59pm returned from some errends.
+The metric being measured in this passage is the fraction of constraints satisfied in the max-XORSAT optimization problem. 
+Specifically, they are comparing two optimization methods—DQI (Dynamic Quantum Interaction) with belief propagation decoding and simulated annealing—based
+on how well they perform in terms of satisfying the constraints of the problem.
+Here’s a breakdown of the key metric:
+Fraction of constraints satisfied: This refers to the proportion of the total constraints in the max-XORSAT instance that are met by a given solution.
+In this case, DQI finds solutions satisfying 83.5% of the constraints, while simulated annealing satisfies 81.5%.
+This metric is critical for comparing the effectiveness of different algorithms in solving the problem.
+
+2:21pm
+Now I need to find out what metric the paper is using so I can make sure I am comparing like to like.
+
+2:37pm Cleaning room for mental switch
+
+2:53pm
+Working on defining the metric. It seems more compilcated then simply "We caught this percentage of all errors."
+
+
