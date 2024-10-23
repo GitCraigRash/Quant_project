@@ -45,5 +45,9 @@ Working on defining the metric. It seems more compilcated then simply "We caught
 I may switch to another paper just to see if that will give me ideas. 
 
 2024.10.22
-7:55pm
+12:23pm
+Figuring out how to calcuate eignevalues. They are relevant because I am wondering what ⌈log_2 ℓ⌉ means becayse it is used 
+to calcuate the weight register which is used for solving max-XORSAT.
+
+
 
