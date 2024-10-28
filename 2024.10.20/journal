@@ -51,5 +51,8 @@ to calcuate the weight register which is used for solving max-XORSAT.
 
 2024.10.28
 8:38am
-
-
+10:00
+Learning what is a Max-LINSAT
+  A combination problem that finds a set of binary that aims to satify the most XOR equations. I don't know how it knows what answer satisfies the equations(true or false or 1 or 0)
+10:50am
+Learning what is a 
